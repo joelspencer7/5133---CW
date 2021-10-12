@@ -1,0 +1,135 @@
+@@ -0,0 +1,134 @@
+package ws2A.CVEcsv;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.ArrayList;
+import java.util.Scanner;
+
+
+/**
+ * CVEData - version for lab 2A - with ArrayList
+ * 
+ */
+public class CVEData {
+
+	public final String SEP = ",";
+
+	public String cve_id;
+	public String mod_date; // Think of a more appropriate data type for date and time
+	public String pub_date; // Think of a more appropriate data type for date and time
+	public String cvss;
+	public String cwe_code;
+	public String cwe_name;
+	public String summary;
+	public String access_authentication;
+	public String access_complexity;
+	public String access_vector;
+	public String impact_availability;
+	public String impact_confidentiality;
+	public String impact_integrity;
+
+	public CVEData(String csvString)
+	{
+		String[]csvParts = csvString.split(SEP, -1);
+		int idx=0;
+		cve_id= csvParts[idx++];
+		mod_date= csvParts[idx++];
+		pub_date= csvParts[idx++]; 
+		cvss= csvParts[idx++];
+		cwe_code= csvParts[idx++];
+		cwe_name= csvParts[idx++];
+		summary= csvParts[idx++];
+		access_authentication= csvParts[idx++];
+		access_complexity= csvParts[idx++];
+		access_vector= csvParts[idx++];
+		impact_availability= csvParts[idx++];
+		impact_confidentiality= csvParts[idx++];
+		impact_integrity= csvParts[idx++];
+
+
+	}
+
+	public String toCSVString()
+	{
+		return cve_id+SEP+mod_date+SEP+pub_date+SEP+cvss+SEP+cwe_code+SEP+cwe_name+SEP+summary+SEP+access_authentication+SEP+access_complexity+SEP+access_vector+SEP+impact_availability+SEP+impact_confidentiality+SEP+impact_integrity;
+	}
+
+
+
+	public static void main(String[] args) throws FileNotFoundException {
+		ArrayList<CVEData> cve = readFile("SampleDataset-CVE.csv");
+		outputCVEs(cve);
+	}
+
+
+
+	/**
+	 * Prints some basic details for each CVE in the specified array
+	 * @param cve, the array of CVE data objects
+	 */
+	private static void outputCVEs(ArrayList<CVEData> cve) 
+	{
+		int vunIE=0, vunIIV=0, neitherCrit=0;
+		for (int i=0; i<cve.size(); i++)
+		{
+			CVEData currentCVE = cve.get(i);
+			if (currentCVE != null)
+			{
+				if (currentCVE.cwe_name.contains("Information Exposure"))
+					vunIE++;
+				if (currentCVE.cwe_name.contains("Improper Input Validation"))
+					vunIIV++;
+				if(!(currentCVE.cwe_name.contains("Information Exposure") || currentCVE.cwe_name.contains("Improper Input Validation")))
+					neitherCrit++;
+				System.out.println(currentCVE.cve_id+": ("+currentCVE.pub_date+") "+currentCVE.cwe_name);
+			}
+		}
+		System.out.println("There are " + cve.size() + " recorded vulnerabilities; ");
+		System.out.println(vunIE+" have are tagged as Information Exposure - "+percent(vunIE, cve.size()));
+		System.out.println(vunIIV+" are tagged as Improper Input Validation  - "+percent(vunIIV, cve.size()));
+		System.out.println(neitherCrit+" are neither -"+percent(neitherCrit,cve.size()));
+	}
+
+
+
+
+	/**
+	 * Simple method to calculate and format a percentage
+	 * @param num - the numerator (i.e. the top number in a division)
+	 * @param div - the divisor / denominator (i.e. the bottom number in a division
+	 * @return (num / div * 100) formatted to 1dp, followed by a % symbol
+	 */
+	private static String percent(int num, int div)
+	{
+		double perc = ((double)num / div);
+		perc *= 100;
+		return String.format(" %.1f%%", perc);
+	}
+
+	/**
+	 * Reads a CSV formatted file with the specified filename into an array of attack data objects.
+	 * @param filename the name of the CSV file
+	 * @return an array of cve data objects
+	 * @throws FileNotFoundException if the file is not found or some other error occurs in file IO
+	 */
+
+	public static ArrayList<CVEData> readFile(String filename) throws FileNotFoundException
+	{
+		ArrayList<CVEData> cves = new ArrayList<>();
+		File csvFile = new File(filename);
+		Scanner csvScan = new Scanner(csvFile);
+		csvScan.nextLine(); // read header
+		while (csvScan.hasNextLine()) {
+			String line = csvScan.nextLine();
+			System.out.println(line);
+			CVEData cve = new CVEData(line);
+			cves.add(cve);
+		}
+
+		csvScan.close();
+		return cves;
+	}
+
+
+}
