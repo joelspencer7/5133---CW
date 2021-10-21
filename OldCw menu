@@ -1,0 +1,38 @@
+System.out.println("Welcome to the football club");
+		//gui
+
+		while (true) {
+
+			System.out.println();
+			System.out.println("Press 1 to Signup");
+			System.out.println("Press 2 to login");
+			System.out.println("Press 3 to Exit");
+			//gui
+			String userInput = scanner.next();
+			//scans user input for selection
+			System.out.println("Loading...");
+
+			try {
+				//try and catch to show if the loop goes wrong
+				if (userInput.equals("1"))
+					userSignUp(Login, scanner);
+
+				else if (userInput.equals("2"))
+					userLogin(Login, scanner,member, getName, getEmail, getPassword,file, getName);
+
+				else if (userInput.equals("3")) {
+					System.out.println("Thank you, Goodbye.");
+					break;
+					//options that the user can select from to go to where they want like login or signup
+
+				}
+				else
+					System.out.println("Invalid Input");
+				//the else statement prints invalid input if the user enters something outside of the list 
+			} catch (InputMismatchException exception) {
+				System.err.println("Invalid Input: Please enter a Valid Input");
+				scanner.nextLine();
+			}
+
+		}
+	}
