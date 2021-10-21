@@ -1,4 +1,6 @@
-System.out.println("Welcome to the football club");
+System.out.println("Welcome to the CVE File Reader ");
+System.out.println();
+System.out.println(Please Enter The Option You Require:);
 		//gui
 
 		while (true) {
