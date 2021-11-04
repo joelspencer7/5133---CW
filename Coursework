@@ -85,6 +85,13 @@ import java.io.File;
 					if (currentCVE != null)
 					{
 						System.out.println(currentCVE.cve_id+": ("+currentCVE.pub_date+") "+currentCVE.cwe_name);
+						
+			public class menuSystem {
+				public static void menuSys() {
+					System.out.println("Welcome to the file reader");
+					System.out.println();
+					System.out.println("Please select your option:");
+	}
 					}
 				}
 			}
