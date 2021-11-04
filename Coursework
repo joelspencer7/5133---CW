@@ -97,6 +97,44 @@ import java.io.File;
 			}
 			
 		}
+package menu;
+import java.util.Scanner;
+
+public class mn {
+
+	public static void main(String[] args) {
+		System.out.println("Welcome to the file reader");
+		System.out.println();
+		System.out.println("Please select your option:");
+		System.out.println("1) View all"+
+		"2) View vulnerability score"+
+		"3) View vendor name and product"+
+		"4) View CVE vendor with product and weakness"+
+		"5) View highest CVE number with dates"+
+		"6) View common vulnerability scores"+
+		"7) View records in CVA dataset"+
+		"8) View all incomplete records");
+		Scanner scan = new Scanner(System.in);
+		String option = scan.nextLine();
+			if (option == "1") {
+			System.out.println(currentCVE.cve_id + currentCVE.mod_date + currentCVE.pub_date + currentCVE.cvss + currentCVE.cwe_code + currentCVE.cwe_name + currentCVE.summary + currentCVE.access_authentication + currentCVE.access_complexity + currentCVE.access_vector + currentCVE.impact.availability + currentCVE.impact_confidentiality + currentCVE.impact_integrity);
+			}
+			else if (option == "2"){
+				System.out.println(currentCVE.cvss);
+			}			
+			else if (option == "3") {
+				System.out.println(currentCVE.cve_id + currentCVE.cwe_name + currentCVE.cwe_code);
+			}
+			else if (option == "4") {
+				System.out.println();
+			}
+				
+		}
+		
+		
+	
+
+	}
 
 		
 
