@@ -1,6 +1,7 @@
+package menu;
 import java.io.File;
-		import java.io.FileNotFoundException;
-		import java.util.Scanner;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
 	
 
 		public class CVEData {
@@ -42,15 +43,13 @@ import java.io.File;
 				impact_integrity= csvParts[idx++];
 				vulnerable_product= csvParts[idx++];
 				vendor= csvParts[idx++];
-				
-				
+								
 			}
-			
 			public String toCSVString()
 			{
 				return cve_id+SEP+mod_date+SEP+pub_date+SEP+cvss+SEP+cwe_code+
 				SEP+cwe_name+SEP+summary+SEP+access_authentication+SEP+access_complexity+
-				SEP+access_vector+SEP+impact_availability+SEP+impact_confidentiality+SEP+impact_integrity;
+				SEP+access_vector+SEP+impact_availability+SEP+impact_confidentiality+SEP+impact_integrity+SEP+vulnerable_product+SEP+vendor;
 			}
 			
 			public static void main(String[] args) throws FileNotFoundException 
@@ -88,37 +87,30 @@ import java.io.File;
 					CVEData currentCVE = cve[i];
 					if (currentCVE != null)
 					{
-						System.out.println(currentCVE.cve_id+": ("+currentCVE.pub_date+") "+currentCVE.cwe_name);
-						
-			public class menuSystem {
-				public static void menuSys() {
-					System.out.println("Welcome to the file reader");
-					System.out.println();
-					System.out.println("Please select your option:");
-	}
-					}
+						System.out.println(currentCVE.cve_id+": ("+currentCVE.pub_date+") "+currentCVE.cwe_name);}
 				}
+						
+					}
+			public static void menuSys() {
+				System.out.println("Welcome to the file reader");
+				System.out.println();
+				System.out.println("Please select your option:");
 			}
-			
-		}
-package menu;
-
-
-public class mn {
-
-	public static void main(String[] args) {
-		System.out.println("Welcome to the file reader");
-		System.out.println();
-		System.out.println("Please select your option:");
-		System.out.println("1) View all"+
-		"2) View vulnerability score"+
-		"3) View vendor name and product"+
-		"4) View CVE vendor with product and weakness"+
-		"5) View highest CVE number with dates"+
-		"6) View common vulnerability scores"+
-		"7) View records in CVA dataset"+
-		"8) View all incomplete records"+
-		"9) Add data entry");
+					
+			public static void mainMenu() 
+				{
+				System.out.println("Welcome to the file reader");
+				System.out.println();
+				System.out.println("Please select your option:");
+				System.out.println("1) View all"+
+				"2) View vulnerability score"+
+				"3) View vendor name and product"+
+				"4) View CVE vendor with product and weakness"+
+				"5) View highest CVE number with dates"+
+				"6) View common vulnerability scores"+
+				"7) View records in CVA dataset"+
+				"8) View all incomplete records"+
+				"9) Add data entry");
 		
 		Scanner scan = new Scanner(System.in);
 		String option = scan.nextLine();
