@@ -20,6 +20,8 @@ import java.io.File;
 			public String impact_availability;
 			public String impact_confidentiality;
 			public String impact_integrity;
+			public String vulnerable_product;
+			public String vendor;
 			
 			public CVEData(String csvString)
 			{
@@ -38,6 +40,8 @@ import java.io.File;
 				impact_availability= csvParts[idx++];
 				impact_confidentiality= csvParts[idx++];
 				impact_integrity= csvParts[idx++];
+				vulnerable_product= csvParts[idx++];
+				vendor= csvParts[idx++];
 				
 				
 			}
