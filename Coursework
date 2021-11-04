@@ -117,22 +117,32 @@ public class mn {
 		"5) View highest CVE number with dates"+
 		"6) View common vulnerability scores"+
 		"7) View records in CVA dataset"+
-		"8) View all incomplete records");
+		"8) View all incomplete records"+
+		"9) Add data entry");
+		
 		Scanner scan = new Scanner(System.in);
 		String option = scan.nextLine();
 			if (option == "1") {
-			System.out.println(currentCVE.cve_id + currentCVE.mod_date + currentCVE.pub_date + currentCVE.cvss + currentCVE.cwe_code + currentCVE.cwe_name + currentCVE.summary + currentCVE.access_authentication + currentCVE.access_complexity + currentCVE.access_vector + currentCVE.impact.availability + currentCVE.impact_confidentiality + currentCVE.impact_integrity);
+			System.out.println(currentCVE.cve_id + currentCVE.mod_date + currentCVE.pub_date + currentCVE.cvss + currentCVE.cwe_code + currentCVE.cwe_name + currentCVE.summary + currentCVE.access_authentication + currentCVE.access_complexity + currentCVE.access_vector + currentCVE.impact.availability + currentCVE.impact_confidentiality + currentCVE.impact_integrity + currentCVE.vulnerable_product + currentCVE.vendor);
 			}
 			else if (option == "2"){
 				System.out.println(currentCVE.cvss);
 			}			
 			else if (option == "3") {
-				System.out.println(currentCVE.cve_id + currentCVE.cwe_name + currentCVE.cwe_code);
-			}
+				System.out.println(currentCVE.cve_id + currentCVE.vendor + currentCVE.vulnerable_product);
+				}
 			else if (option == "4") {
+				System.out.println(currentCVE.cve_id + currentCVE.vendor + currentCVE.vulnerable_product + currentCVE.cwe_code);
+			}
+			else if (option == "5") {
+				System.out.println(currentCVE.cve_id + currentCVE.vendor + currentCVE.pub_date);
+			}
+	//		else if (option == "6") {
+	//			System.out.println(currentCVE.cve_id + currentCVE.cvss + currentCVE.vendor + currentCVE.cwe_code + );
+	//		}
+			else if (option == "7") {
 				System.out.println();
 			}
-				
 		}
 		
 		
