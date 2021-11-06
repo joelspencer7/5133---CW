@@ -1,31 +1,32 @@
 System.out.println("Welcome to the CVE File Reader ");
 System.out.println();
 System.out.println(Please Enter The Option You Require:);
-		//gui
+		//ui
 
 		while (true) {
 
 			System.out.println();
-			System.out.println("Press 1 to Signup");
-			System.out.println("Press 2 to login");
-			System.out.println("Press 3 to Exit");
-			//gui
+			System.out.println("Press Y to Add A New Entry");
+			System.out.println("Press N to Go Back");
+			System.out.println("Press Q to Exit Program");
+			//ui
 			String userInput = scanner.next();
 			//scans user input for selection
 			System.out.println("Loading...");
+			userInput.toUpperCase();
 
 			try {
 				//try and catch to show if the loop goes wrong
-				if (userInput.equals("1"))
-					userSignUp(Login, scanner);
+				if (userInput.equals("Y"))
+					addEntry(Add, scanner);/// create new method called addEntry
 
-				else if (userInput.equals("2"))
-					userLogin(Login, scanner,member, getName, getEmail, getPassword,file, getName);
+				else if (userInput.equals("N"))
+					goBackToMain("what ever the main method is called")// create new method goBackToMain
 
-				else if (userInput.equals("3")) {
+				else if (userInput.equals("Q")) {
 					System.out.println("Thank you, Goodbye.");
 					break;
-					//options that the user can select from to go to where they want like login or signup
+					
 
 				}
 				else
