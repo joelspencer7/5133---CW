@@ -61,7 +61,7 @@ import java.util.Scanner;
 			
 			public static CVEData[] readFile(String filename) throws FileNotFoundException
 			{
-				CVEData[] cves = new CVEData[10];
+				CVEData[] cves = new CVEData[13];
 				File csvFile = new File(filename);
 				Scanner csvScan = new Scanner(csvFile);
 				
