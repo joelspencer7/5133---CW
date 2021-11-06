@@ -7,20 +7,35 @@ System.out.println(Please Enter The Option You Require:);
 
 			System.out.println();
 			System.out.println("Press Y to Add A New Entry");
+			System.out.println();
 			System.out.println("Press N to Go Back");
+			System.out.println();
 			System.out.println("Press Q to Exit Program");
+			System.out.println();
 			//ui
 			String userInput = scanner.next();
 			//scans user input for selection
+			System.out.println();
 			System.out.println("Loading...");
+			System.out.println();
+			System.out.println("Loading...");
+			System.out.println();
 			userInput.toUpperCase();
 
 			try {
 				//try and catch to show if the loop goes wrong
 				if (userInput.equals("Y"))
+				
+				//test
+				System.out.println("yes works");
+				//test
 					addEntry(Add, scanner);/// create new method called addEntry
 
 				else if (userInput.equals("N"))
+				
+				//test
+				System.out.println("no works");
+				//test
 					goBackToMain("what ever the main method is called")// create new method goBackToMain
 
 				else if (userInput.equals("Q")) {
