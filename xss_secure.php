@@ -23,7 +23,7 @@ if(isset($_SESSION['active'])) {
 
 if(isset($_REQUEST['username']) && isset($_REQUEST['password'])) {
 	$userName = 'ADMIN';
-	$passHash = sha1('adminPassword');
+	$passHash = password_hash()('adminPassword');
 	$firstName = 'admin';
 	$lastName = 'admin_';
 	
@@ -38,6 +38,8 @@ if(isset($_REQUEST['username']) && isset($_REQUEST['password'])) {
 		
 		echo "<h1>Hello " . $_SESSION['firstName'] . " " . $_SESSION['lastName'] . "</h1>";
 	}
+	
+	
 }
 ?>
 <html>
